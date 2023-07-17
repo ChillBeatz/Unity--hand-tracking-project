@@ -2,6 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+public class Login: MonoBehaviour
+{
+    public InputField accountField;
+    public InputField passwordField;
+    public Button submitButton;
+
+    void Start()
+    {
+        submitButton.onClick.AddListener(() => {
+            StartCoroutine(Main.Instance.Web.Login(accountField.text, passwordField.text));
+        });
+    }
+}
+/*using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 
 public class Login : MonoBehaviour
@@ -9,12 +27,12 @@ public class Login : MonoBehaviour
     int flag = 1;
     public InputField accountField;
     public InputField passwordField;
-
     public Button submitButton;
 
     public void CallLogin()
     {
         StartCoroutine(LoginPlayer());
+
     }
 
     IEnumerator LoginPlayer()
@@ -42,4 +60,4 @@ public class Login : MonoBehaviour
             }
         }
     }
-}
+}*/
