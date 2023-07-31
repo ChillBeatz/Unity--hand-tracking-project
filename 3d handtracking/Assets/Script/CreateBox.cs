@@ -20,12 +20,11 @@ public class CreateBox : MonoBehaviour
     {
         t = t + Time.deltaTime;
 
-        if(t > Random.Range(0.5f, 1))
+        if(t > Random.Range(1f, 2))
         {
             createcopy();
             t = 0;
         }
-        
     }
 
     void createcopy()
