@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - apple
+=======
+  - Box
+>>>>>>> e376144250157819ccb18bd76d043bc4d7502497
   layers:
   - Default
   - TransparentFX
