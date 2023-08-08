@@ -9,7 +9,7 @@ public class Web : MonoBehaviour
     {
         // StartCoroutine(GetDate());
         //StartCoroutine(GetUser());
-        //StartCoroutine(Login("wayne","66666"));
+        //StartCoroutine(RegisterUser("chillBeatz","999999"));
     }
 
     public IEnumerator GetDate()
@@ -58,6 +58,27 @@ public class Web : MonoBehaviour
 
 
         using (UnityWebRequest www = UnityWebRequest.Post("http://localhost:1080/unityhandtrackinggame/Login.php", form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
+    }
+    public IEnumerator RegisterUser(string username, string password)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("loginUser", username);
+        form.AddField("loginPass", password);
+
+
+        using (UnityWebRequest www = UnityWebRequest.Post("http://localhost:1080/unityhandtrackinggame/RegisterUser.php", form))
         {
             yield return www.SendWebRequest();
 

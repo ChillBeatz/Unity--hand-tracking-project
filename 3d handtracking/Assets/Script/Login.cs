@@ -8,11 +8,15 @@ public class Login: MonoBehaviour
     public InputField accountField;
     public InputField passwordField;
     public Button submitButton;
+    public Button RegisterButton;
 
     void Start()
     {
         submitButton.onClick.AddListener(() => {
             StartCoroutine(Main.Instance.Web.Login(accountField.text, passwordField.text));
+        });
+        RegisterButton.onClick.AddListener(() => {
+            StartCoroutine(Main.Instance.Web.RegisterUser(accountField.text, passwordField.text));
         });
     }
 }
